@@ -10,7 +10,7 @@ git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME
 cd gh-pages
 
 echo '---- Switch to gh-pages branch ----'
-git checkout gh-pages
+git checkout -b gh-pages
 
 echo '---- Copy latest PDF build ----'
 mkdir -p dist
