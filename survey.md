@@ -2,9 +2,6 @@
 title: "Обзор по методам обнаружения инсайдерского поведения по пользовательскому поведению"
 date: "Октябрь 2020"
 author: "Валентин Александров, 620 группа"
-output: 
-  pdf_document:
-    latex_engine: xelatex
 mainfont: "Times New Roman"
 mathfont: "Cambria Math"
 ---
