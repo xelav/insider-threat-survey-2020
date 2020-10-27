@@ -3,7 +3,6 @@ title: "Обзор по методам обнаружения инсайдерс
 date: "Октябрь 2020"
 author: "Валентин Александров, 620 группа"
 mainfont: "Times New Roman"
-mathfont: "Cambria Math"
 bibliography: survey.bib
 header-includes: |
     \usepackage{amsmath}
