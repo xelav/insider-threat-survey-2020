@@ -10,11 +10,20 @@ before_install:
 - sudo apt-get install -y --reinstall ttf-mscorefonts-installer
 - chmod u+x ./travis/build.sh
 - chmod u+x ./travis/publish.sh
+- chmod u+x ./build.sh
 
-script: "./travis/build.sh"
+script: "./build.sh"
 
 after_success:
 - "./travis/publish.sh"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "MyVjMQ6IMffUVg/AAFn4cO2WGZcddIS0n0lbJH5Uu0+OcZVkPbxihOiv5M8tIFQe7bTye+4HKKSNgzRzW5PHS4jy1CjXKX4lYUoQDzDtXmXOE4UaGnXdTDJCtDZXmBUggT/jBTd6YLF011YpYTThu+quiyDAh87v7I7ogWdLFp6ZCVVGi2s6TzpZ9bszgVe7mHrJEp+LFvWOx5sri9SeCAA+b4P9vmGBJDWatwfjjp6jFRFOmftqmZkmc0QzkvJGjWAJbfXPYK72EaA1aPDXfDm/2D6t24K0F8GRaDAAXeHsS95y9tIFTxufBwLAp8iYgfMyBLBIQ+GeKquaJpNnPTR4qskKyYEc5XeXWl1LaIZ4Qam1jGiZipJeUB6Kyxd56pNgincDIadZwi8ISqJllGQXsLEa4bYspuODI9by0K6SGuyQgnJp9zCxnqqy8RJUFhluwFLieLxVDYo0qhRGta6dTPKBg4Gh+l0cliS9IpdL7SceV19KLUl2AQcEPDDNMw7GaUXOUYN6jyigdRDuhbU/t3nWJRIo5WasuWRqy0PDy5K0JjIlrFCvhsCqZlcU8FTQXdrp35J0N6zm6by7a/sD7EYY2G2QR+fLCcf+Uncj50OSaXWm06lO5bgrVkmRrjKctPqS4VnrxPDvHl5A8fONk3QhCGLUTw3SSSfEOKY=" 
+  file: $TRAVIS_BUILD_DIR/survey.pdf
+  skip_cleanup: true
+  overwrite: true
 
 env:
   global:
