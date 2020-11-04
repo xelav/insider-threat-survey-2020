@@ -1,1 +1,1 @@
-pandoc --citeproc -s survey.md -o survey.pdf --pdf-engine=lualatex --csl=gost.csl
+pandoc --defaults defaults.yaml

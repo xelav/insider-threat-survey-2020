@@ -1,0 +1,13 @@
+input-files:
+  - src/000_preamble.md
+  - src/010_introduction.md
+  - src/020_survey.md
+  - src/021_survey_preprocessing.md
+  - src/022_survey_models.md
+  - src/030_ending.md
+pdf-engine: xelatex
+citeproc: true
+bibliography:
+  - src/survey.bib
+csl: gost.csl
+output-file: survey.pdf
