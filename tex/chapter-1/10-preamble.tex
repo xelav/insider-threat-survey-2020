@@ -1,0 +1,68 @@
+\sloppy
+
+% Настройки стиля ГОСТ 7-32
+% Для начала определяем, хотим мы или нет, чтобы рисунки и таблицы нумеровались в пределах раздела, или нам нужна сквозная нумерация.
+%\EqInChapter % формулы будут нумероваться в пределах раздела
+%\TableInChapter % таблицы будут нумероваться в пределах раздела
+%\PicInChapter % рисунки будут нумероваться в пределах раздела
+
+% Добавляем гипертекстовое оглавление в PDF
+\usepackage[
+bookmarks=true, colorlinks=true, unicode=true,
+urlcolor=black,linkcolor=black, anchorcolor=black,
+citecolor=black, menucolor=black, filecolor=black,
+]{hyperref}
+
+% Изменение начертания шрифта --- после чего выглядит таймсоподобно.
+% apt-get install scalable-cyrfonts-tex
+
+\IfFileExists{cyrtimes.sty}
+    {
+        \usepackage{cyrtimespatched}
+    }
+    {
+        % А если Times нету, то будет CM...
+    }
+
+% TODO заметки
+% https://tex.stackexchange.com/questions/9796/how-to-add-todo-notes
+% \usepackage[colorinlistoftodos,prependcaption,textsize=tiny,obeyFinal]{todonotes}
+\usepackage{xargs}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+\usepackage{comment}
+
+\usepackage{xcolor}
+\usepackage{ifdraft}
+\ifoptionfinal{
+\newcommand{\hl}[1]{#1}
+}{
+\newcommand{\hl}[1]{\colorbox{yellow}{#1}}
+}
+
+\usepackage{graphicx}   % Пакет для включения рисунков
+\graphicspath{ {charts/} }
+\DeclareGraphicsExtensions{.jpg,.pdf,.png}
+% С такими оно полями оно работает по-умолчанию:
+% \RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+% Если вас тошнит от поля в 10мм --- увеличивайте до 20-ти, ну и про переплёт не забывайте:
+\geometry{right=20mm}
+\geometry{left=30mm}
+
+
+% Произвольная нумерация списков.
+\usepackage{enumerate}
+
+\usepackage{float}
+\restylefloat{table}
+
+\setcounter{tocdepth}{2} %Подробность оглавления
+%4 это chapter, section, subsection, subsubsection и paragraph
+%3 это chapter, section, subsection и subsubsection
+%2 это chapter, section, и subsection
+%1 это chapter и section
+%0 это chapter.

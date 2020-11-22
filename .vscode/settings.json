@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*.blg": true,
+        "**/*.bst": true,
+        "**/*.clo": true,
+        "**/*.log": true,
+        "**/*.out": true,
+        "**/*.roc": true,
+        "**/*.tdo": true,
+        "**/*.toc": true
+    }
+}
